@@ -20,9 +20,32 @@
   <ul></ul>
   <script>
     let menu = window.document.getElementById('menu')
-    console.dir(menu)
-    console.log(menu.children)
-    console.log(menu.children[0])
+    console.dir(menu);  //구조를 먼저 보자
+    console.log(menu.children);
+    console.log(menu.children[0]); //검증 완
+    console.dir(menu.children[0].style); //스타일 구조 보고
+    /* menu.children[0].style.color="blue"; //적용해서 검증하자.
+    //1개만 테스트하고 넣는다. */
+
+    for (let i = 0; i < menu.children.length; i++){
+      //menu.length하면 ul은 하나이므로 의미가 없다.
+
+      if (/* menu.children[i].textContent !== "items-3" */
+          i === 2
+      ){
+
+        //참일때 나오는 값
+        menu.children[i].style.color="red";
+        
+      } else {
+        
+        //거짓일때 나오는 값
+        menu.children[i].style.color="blue";
+        menu.children[i].style.backgroundColor="gray";
+
+      }
+      }
+
   </script>
 </body>
 </html>

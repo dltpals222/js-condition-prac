@@ -7,19 +7,28 @@
   <title>Document</title>
 </head>
 <body>
-  <ul id="menu">
-    <li>items-1</li>
-    <li>items-2</li>
-    <li>items-3</li>
-    <li>items-4</li>
-    <li>items-5</li>
-  </ul>
-  <ul></ul>
-  <ul></ul>
-  <ul></ul>
-  <ul></ul>
+  <div id="root">
+    <ul id="menu">
+      <li>items-1</li>
+      <li>items-2</li>
+      <li>items-3</li>
+      <li>items-4</li>
+      <li>items-5</li>
+    </ul>
+    <ul>
+      <li>itembundle-1</li>
+      <li>itembundle-2</li>
+      <li>itembundle-3</li>
+      <li>itembundle-4</li>
+      <li>itembundle-5</li>
+    </ul>
+    <ul></ul>
+    <ul></ul>
+    <ul></ul>
+  </div>
   <script>
     let menu = window.document.getElementById('menu')
+    let root = document.getElementById("root")
     console.dir(menu);  //구조를 먼저 보자
     console.log(menu.children);
     console.log(menu.children[0]); //검증 완
@@ -46,6 +55,27 @@
       }
       }
 
-  </script>
+
+
+      //안되는거 실험해보는 장소
+      let itembundle = root.children[1].children[2]
+      console.log(itembundle==="itembundle-3")
+      console.log(root.children[1].children.length)
+      console.log(menu.children[1].innerText)
+
+
+
+      //반대로 if 안에 for반복문 넣어보기
+      if (itembundle.innerText==="itembundle-3"){
+        for(let index = 0; index < root.children[1].children.length;index++ ){
+
+          // 넣기만 하는 것보단 반복문으로 추가해보자
+          let li = document.createElement('li');
+          li.innerText = menu.children[1].innerText;
+          root.children[1].children[2].appendChild(li);
+        }
+      }
+
+</script>
 </body>
 </html>
